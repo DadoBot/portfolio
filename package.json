@@ -1,6 +1,6 @@
 {
-  "homepage": "https://DadoBot.github.io/davide-andolfi-portfolio",
-  "name": "davide-andolfi-portfolio",
+  "homepage": "https://DadoBot.github.io/portfolio",
+  "name": "portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",
