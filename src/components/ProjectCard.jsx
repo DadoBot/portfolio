@@ -57,13 +57,13 @@ export default function ProjectCard({ project, lang, t, index }) {
       </div>
 
       {/* Project image */}
-      <div className="project-card__image-wrap">
+      <div className={`project-card__image-wrap ${open ? 'open' : ''}`}>
         <div className="project-card__image-frame window-frame">
           <div className="window-frame__header">
             <span className="window-dot window-dot--red"  aria-hidden="true" />
             <span className="window-dot window-dot--yellow" aria-hidden="true" />
             <span className="window-dot window-dot--green"  aria-hidden="true" />
-            <span className="window-frame__title">{data.title.toLowerCase()}.app</span>
+            <span className="window-frame__title"></span>
           </div>
           <div className="window-frame__body" style={{ padding: 0 }}>
             <img

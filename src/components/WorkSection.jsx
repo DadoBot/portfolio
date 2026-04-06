@@ -7,7 +7,7 @@ function ScrollIndicator({ label }) {
     <div className="scroll-indicator" aria-hidden="true">
       <div className="scroll-indicator__arrow">
         <svg width="12" height="16" viewBox="0 0 12 16" fill="none">
-          <path d="M6 1V15M6 15L1 10M6 15L11 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M6 1V15M6 15L1 10M6 15L11 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
       <span>{label}</span>
@@ -22,14 +22,16 @@ export default function WorkSection({ lang, t }) {
 
         {/* Hero */}
         <div className="hero-window fade-in visible">
-          <WindowFrame title="davide-andolfi.dev">
-            <h1 className="hero-headline">
-              {t.hero.line1}<br />
-              {t.hero.line2} <em>{t.hero.accent}</em>
-            </h1>
-            <p className="hero-sub">{t.hero.sub}</p>
-            <ScrollIndicator label={t.hero.scroll} />
-          </WindowFrame>
+          <div className="hero-card" style={{ padding: '12px 12px 0 12px' }}>
+            <WindowFrame title="" className="hero-inner-frame">
+              <h1 className="hero-headline">
+                {t.hero.line1}<br />
+                {t.hero.line2} <em>{t.hero.accent}</em>
+              </h1>
+              <p className="hero-sub">{t.hero.sub}</p>
+              <ScrollIndicator label={t.hero.scroll} />
+            </WindowFrame>
+          </div>
         </div>
 
         {/* Projects */}

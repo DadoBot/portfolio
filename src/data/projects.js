@@ -13,9 +13,9 @@ const projects = [
       meta: 'Product Design & Development · 2025',
       title: 'Marvelli',
       tagline: 'A production-ready management platform for social assistance distribution.',
-      role: 'Product Designer & Frontend Developer. Requirements gathering, ER schema design, UI flow definition, and React frontend development.',
+      role: 'Product Designer & Frontend Developer. Requirements gathering, ER scheme design, UI flow definition, and React frontend development.',
       approach:
-        'I gathered requirements alongside my friend and collaborator Winner Ozekhome, and together we structured the ER schema. I defined the user flow and the system components needed to satisfy each requirement. UI was designed with Google Stitch; the React frontend was built with the help of Gemini CLI.',
+        'I gathered requirements alongside my friend and collaborator Winner Ozekhome, and together we structured the ER scheme. I defined the user flow and the system components needed to satisfy each requirement. UI was designed with Google Stitch; the React frontend was built with the help of Gemini CLI.',
       learnings: [
         'Analysing and understanding functional requirements',
         'Designing simple, intuitive navigation for end users',
