@@ -13,6 +13,7 @@ export default function Navbar({ activeView, onViewChange, t }) {
       </div>
 
       <div className="nav-toggle" role="tablist" aria-label="Navigation">
+        <div className={`nav-toggle__slider ${activeView === 'about' ? 'right' : 'left'}`}></div>
         <button
           id="btn-work"
           role="tab"
