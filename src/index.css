@@ -126,10 +126,16 @@ a {
 }
 
 .navbar__name {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-primary);
-  letter-spacing: 0.01em;
+  font-size: 22px;
+  font-family: 'Gloock', serif;
+  font-style: italic;
+  font-weight: 400;
+  background-image: linear-gradient(to bottom, #f2f2f2 50%, transparent 90%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 5px 15px #0057ff1a, 0 -5px 15px #ff5a0014, 0 0 30px #fff3;
+  padding-right: 4px;
 }
 
 .navbar__role {
@@ -607,162 +613,198 @@ a {
   color: var(--text-secondary);
 }
 
-/* ---------- About Section ---------- */
+/* ---------- About Section (Perry Wang Layout) ---------- */
 .about-section {
-  padding: 60px 0 120px;
+  padding: 50px 0 160px;
 }
 
-.about-grid {
+.pw-layout {
+  position: relative;
+}
+
+.pw-hero {
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+.pw-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.pw-headline {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.pw-headline em {
+  font-family: 'Gloock', serif;
+  font-style: italic;
+  font-weight: 400;
+  background-image: linear-gradient(to bottom, #f2f2f2 50%, transparent 90%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 5px 15px #0057ff1a, 0 -5px 15px #ff5a0014, 0 0 30px #fff3;
+  padding-right: 6px;
+}
+
+.double-column-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 120px;
 }
 
-.about-photo-frame .window-frame__body {
-  padding: 0;
+.col-left {
+  display: flex;
+  flex-direction: column;
 }
 
-.about-photo {
+.col-right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.pw-p--large {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.pw-img-wrap {
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.pw-img {
   width: 100%;
-  height: 400px;
+  height: auto;
+  min-height: 500px;
   object-fit: cover;
   display: block;
 }
 
-.about-intro-frame .window-frame__body {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  min-height: 400px;
-}
-
-.about-eyebrow {
-  font-size: 11px;
+.pw-h3 {
+  font-size: 24px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin-bottom: 16px;
-}
-
-.about-headline {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
+  color: var(--text-primary);
   margin-bottom: 20px;
+  letter-spacing: -0.02em;
 }
 
-.about-headline em {
-  font-family: 'Gloock', serif;
-  font-style: normal;
-  font-weight: 400;
-}
-
-.about-bio {
-  font-size: 15px;
+.pw-p {
+  font-size: 16px;
   color: var(--text-secondary);
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
-/* About blocks */
-.about-blocks {
+.pw-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 24px;
+  gap: 80px;
+  padding-top: 80px;
+  border-top: 1px solid var(--border);
 }
 
-.about-block .window-frame__body {
-  padding: 36px;
-}
-
-.about-block-icon {
-  font-size: 28px;
-  margin-bottom: 16px;
-}
-
-.about-block h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-
-.about-block p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.75;
-}
-
-/* Interests */
-.interests-frame .window-frame__body {
-  padding: 36px;
-}
-
-.interests-title {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin-bottom: 20px;
-}
-
-.interests-grid {
+.pw-interests {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
-.interest-tag {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.pw-interest-tag {
   border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
+  border-radius: 999px;
   padding: 8px 16px;
   font-size: 13px;
-  font-weight: 500;
   color: var(--text-secondary);
-  transition: var(--transition-fast);
   background: rgba(255, 255, 255, 0.02);
 }
 
-.interest-tag:hover {
-  border-color: var(--border-hover);
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* Social links */
-.social-links-frame {
-  margin-top: 24px;
-}
-
-.social-links-frame .window-frame__body {
-  padding: 28px 36px;
+.pw-socials {
   display: flex;
-  align-items: center;
-  gap: 24px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.social-link {
-  font-size: 13px;
-  font-weight: 500;
+.pw-social-link {
+  font-size: 15px;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   transition: var(--transition-fast);
 }
 
-.social-link:hover {
+.pw-social-link:hover {
   color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 20px 0 160px;
+  }
+
+  .double-column-block {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .col-left,
+  .col-right {
+    display: contents;
+  }
+
+  /* Reset manual masonry margins for all children */
+  .col-left>*,
+  .col-right>* {
+    margin-top: 0 !important;
+  }
+
+  /* Manual block re-ordering for logical sequence */
+  .block-about-photo {
+    order: 1;
+  }
+
+  .block-about-bio {
+    order: 2;
+  }
+
+  .block-mission-photo {
+    order: 3;
+  }
+
+  .block-mission-text {
+    order: 4;
+  }
+
+  .block-volunt-photo {
+    order: 5;
+  }
+
+  .block-volunt-text {
+    order: 6;
+  }
+
+  .pw-footer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* ---------- Language Toggle ---------- */

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import WindowFrame from './WindowFrame';
 import aboutPhoto from '../assets/images/about-photo.png';
 import volunteeringPhoto from '../assets/images/about-volunteering.png';
 import missionPhoto from '../assets/images/about-mission.png';
@@ -32,148 +31,85 @@ function FadeBlock({ children, delay = 0 }) {
 
 export default function AboutSection({ t }) {
   return (
-    <section id="about" className="about-section">
-      <div className="container">
+    <section id="about" className="about-section pw-layout">
+      <div className="container" style={{ maxWidth: '1000px' }}>
 
-        {/* Top grid: photo + intro */}
+        {/* Top Intro Section */}
         <FadeBlock delay={0}>
-          <div className="about-grid">
-            <div className="about-photo-frame window-frame">
-              <div className="window-frame__header">
-                <span className="window-dot window-dot--red" aria-hidden="true" />
-                <span className="window-dot window-dot--yellow" aria-hidden="true" />
-                <span className="window-dot window-dot--green" aria-hidden="true" />
-                <span className="window-frame__title">profile.jpg</span>
-              </div>
-              <div className="window-frame__body" style={{ padding: 0 }}>
-                <img src={aboutPhoto} alt="Davide Andolfi" className="about-photo" />
-              </div>
-            </div>
-
-            <div className="about-intro-frame window-frame">
-              <div className="window-frame__header">
-                <span className="window-dot window-dot--red" aria-hidden="true" />
-                <span className="window-dot window-dot--yellow" aria-hidden="true" />
-                <span className="window-dot window-dot--green" aria-hidden="true" />
-                <span className="window-frame__title">readme.md</span>
-              </div>
-              <div className="window-frame__body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <p className="about-eyebrow">{t.about.eyebrow}</p>
-                <h1 className="about-headline">
-                  {t.about.headline_1} <em>{t.about.headline_2}</em> —<br />
-                  {t.about.headline_accent}
-                </h1>
-                <p className="about-bio">{t.about.bio}</p>
-              </div>
-            </div>
+          <div className="pw-hero">
+            <p className="pw-eyebrow">
+              <span className="window-dot" style={{ background: '#fff', width: '6px', height: '6px', display: 'inline-block', marginRight: '10px' }}></span>
+              {t.about.eyebrow}
+            </p>
+            <h1 className="pw-headline">
+              {t.about.headline_1} <em>{t.about.headline_2}</em>
+            </h1>
           </div>
         </FadeBlock>
 
-        {/* Mission + Volunteering */}
+        {/* Double Column Editorial Grid */}
         <FadeBlock delay={0.1}>
-          <div className="about-blocks">
-            {/* Mission Text */}
-            <WindowFrame title="mission.md">
-              <div className="about-block-icon">{t.about.mission_icon}</div>
-              <h3>{t.about.mission_title}</h3>
-              <p>{t.about.mission_text}</p>
-            </WindowFrame>
-
-            {/* Mission Image */}
-            <div className="window-frame">
-              <div className="window-frame__header">
-                <span className="window-dot window-dot--red" aria-hidden="true" />
-                <span className="window-dot window-dot--yellow" aria-hidden="true" />
-                <span className="window-dot window-dot--green" aria-hidden="true" />
-                <span className="window-frame__title">mission.jpg</span>
+          <div className="double-column-block info-hero">
+            {/* Left Column */}
+            <div className="col-left">
+              <div className="pw-img-wrap block-about-photo">
+                <img src={aboutPhoto} alt="Davide Andolfi" className="pw-img" />
               </div>
-              <div className="window-frame__body" style={{ padding: 0, height: '100%', display: 'flex' }}>
-                <img src={missionPhoto} alt="Mission and Vision" style={{ width: '100%', height: '100%', minHeight: '260px', objectFit: 'cover', display: 'block' }} />
+
+              <div className="pw-text-wrap block-mission-text" style={{ marginTop: '100px' }}>
+                <h3 className="pw-h3">{t.about.mission_title}</h3>
+                <p className="pw-p">{t.about.mission_text}</p>
+              </div>
+              
+              <div className="pw-img-wrap block-volunt-photo" style={{ marginTop: '80px' }}>
+                <img src={volunteeringPhoto} alt="Volunteering" className="pw-img" />
               </div>
             </div>
 
-            {/* Volunteering Image */}
-            <div className="window-frame">
-              <div className="window-frame__header">
-                <span className="window-dot window-dot--red" aria-hidden="true" />
-                <span className="window-dot window-dot--yellow" aria-hidden="true" />
-                <span className="window-dot window-dot--green" aria-hidden="true" />
-                <span className="window-frame__title">volunteering.jpg</span>
+            {/* Right Column */}
+            <div className="col-right">
+              <div className="pw-text-wrap block-about-bio">
+                <p className="pw-p pw-p--large">{t.about.bio}</p>
               </div>
-              <div className="window-frame__body" style={{ padding: 0, height: '100%', display: 'flex' }}>
-                <img src={volunteeringPhoto} alt="Volunteering at Centro Marvelli" style={{ width: '100%', height: '100%', minHeight: '260px', objectFit: 'cover', display: 'block', objectPosition: 'center 20%' }} />
+
+              <div className="pw-img-wrap block-mission-photo" style={{ marginTop: '80px' }}>
+                <img src={missionPhoto} alt="Mission" className="pw-img" />
+              </div>
+
+              <div className="pw-text-wrap block-volunt-text" style={{ marginTop: '160px' }}>
+                <h3 className="pw-h3">{t.about.volunteering_title}</h3>
+                <p className="pw-p">{t.about.volunteering_text}</p>
               </div>
             </div>
-
-            {/* Volunteering Text */}
-            <WindowFrame title="volunteering.md">
-              <div className="about-block-icon">{t.about.volunteering_icon}</div>
-              <h3>{t.about.volunteering_title}</h3>
-              <p>{t.about.volunteering_text}</p>
-            </WindowFrame>
           </div>
         </FadeBlock>
 
-        {/* Interests */}
-        <FadeBlock delay={0.15}>
-          <div className="window-frame interests-frame">
-            <div className="window-frame__header">
-              <span className="window-dot window-dot--red" aria-hidden="true" />
-              <span className="window-dot window-dot--yellow" aria-hidden="true" />
-              <span className="window-dot window-dot--green" aria-hidden="true" />
-              <span className="window-frame__title">interests.json</span>
-            </div>
-            <div className="window-frame__body">
-              <p className="interests-title">{t.about.interests_label}</p>
-              <div className="interests-grid">
+        {/* Footer info: Interests & Social */}
+        <FadeBlock delay={0.4}>
+          <div className="pw-footer">
+            <div className="pw-footer-col">
+              <p className="pw-eyebrow">{t.about.interests_label}</p>
+              <div className="pw-interests">
                 {t.about.interests.map((item, i) => (
-                  <span key={i} className="interest-tag">
-                    <span aria-hidden="true">{item.emoji}</span>
+                  <span key={i} className="pw-interest-tag">
                     {item.label}
                   </span>
                 ))}
               </div>
             </div>
-          </div>
-        </FadeBlock>
-
-        {/* Social links */}
-        <FadeBlock delay={0.2}>
-          <div className="social-links-frame window-frame">
-            <div className="window-frame__header">
-              <span className="window-dot window-dot--red" aria-hidden="true" />
-              <span className="window-dot window-dot--yellow" aria-hidden="true" />
-              <span className="window-dot window-dot--green" aria-hidden="true" />
-              <span className="window-frame__title">{t.about.connect}</span>
-            </div>
-            <div className="window-frame__body" style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
-              <a
-                id="about-linkedin"
-                className="social-link"
-                href="https://www.linkedin.com/in/davide-andolfi-513881253/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn <ArrowUpRight />
-              </a>
-              <a
-                id="about-github"
-                className="social-link"
-                href="https://github.com/DadoBot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub <ArrowUpRight />
-              </a>
-              <a
-                id="about-instagram"
-                className="social-link"
-                href="https://www.instagram.com/giandolf_34/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram <ArrowUpRight />
-              </a>
+            <div className="pw-footer-col">
+              <p className="pw-eyebrow">{t.about.connect}</p>
+              <div className="pw-socials">
+                <a className="pw-social-link" href="https://www.linkedin.com/in/davide-andolfi-513881253/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn <ArrowUpRight />
+                </a>
+                <a className="pw-social-link" href="https://github.com/DadoBot" target="_blank" rel="noopener noreferrer">
+                  GitHub <ArrowUpRight />
+                </a>
+                <a className="pw-social-link" href="https://www.instagram.com/giandolf_34/" target="_blank" rel="noopener noreferrer">
+                  Instagram <ArrowUpRight />
+                </a>
+              </div>
             </div>
           </div>
         </FadeBlock>
