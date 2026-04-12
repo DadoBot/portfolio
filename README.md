@@ -1,7 +1,5 @@
 # Davide's Professional Portfolio
 
-![Portfolio Preview](./public/vite.svg) <!-- You can update this with a real screenshot of your portfolio later -->
-
 Welcome to my professional portfolio repository! This is a minimalist, responsive, single-page web application built with **React** and **Vite**. It is designed with a premium, high-fidelity dark-mode aesthetic inspired by the editorial, masonry-style layouts of modern web design.
 
 **Live Demo:** [https://DadoBot.github.io/portfolio](https://DadoBot.github.io/portfolio)
