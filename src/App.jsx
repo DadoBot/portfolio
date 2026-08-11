@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import WorkSection from './components/WorkSection';
 import AboutSection from './components/AboutSection';
 import LangToggle from './components/LangToggle';
+import CookieConsent from './components/CookieConsent';
 import en from './i18n/en';
 import it from './i18n/it';
 import './index.css';
@@ -36,6 +37,7 @@ export default function App() {
       </main>
 
       <LangToggle lang={lang} onLangChange={setLang} t={t} />
+      <CookieConsent t={t} />
     </>
   );
 }
