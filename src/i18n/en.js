@@ -49,6 +49,11 @@ const en = {
     en: 'EN',
     it: 'IT',
   },
+  cookies: {
+    text: 'This site uses Google Analytics to understand how it is used. Do you accept?',
+    accept: 'Accept',
+    reject: 'Reject',
+  },
 };
 
 export default en;
