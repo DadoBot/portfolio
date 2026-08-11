@@ -3,14 +3,21 @@ const it = {
     work: 'Progetti',
     about: 'Chi sono',
     linkedin: 'LinkedIn',
-    github: 'GitHub',
+    instagram: 'Instagram',
   },
   hero: {
     line1: 'Realizzo sistemi,',
     line2: 'interfacce &',
     accent: 'soluzioni.',
     sub: 'Software Engineer con base in Italia.',
-    scroll: 'Scorri per scoprire',
+    scroll: 'Vedi i progetti selezionati',
+  },
+  contact: {
+    eyebrow: 'Parliamone',
+    title: 'Hai un progetto in mente?',
+    text: 'Sono sempre aperto a nuove conversazioni — scrivimi e parliamone.',
+    cta: 'Scrivimi',
+    floatingLabel: 'Contatti',
   },
   projects: {
     label: 'Progetti Selezionati',

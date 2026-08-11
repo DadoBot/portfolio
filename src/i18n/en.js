@@ -3,14 +3,21 @@ const en = {
     work: 'Work',
     about: 'Info',
     linkedin: 'LinkedIn',
-    github: 'GitHub',
+    instagram: 'Instagram',
   },
   hero: {
     line1: 'I build systems,',
     line2: 'interfaces &',
     accent: 'solutions.',
     sub: 'Software Engineer based in Italy.',
-    scroll: 'Scroll to explore',
+    scroll: 'See selected projects',
+  },
+  contact: {
+    eyebrow: "Let's talk",
+    title: "Have a project in mind?",
+    text: "I'm always open to new conversations — reach out and let's talk about it.",
+    cta: 'Email me',
+    floatingLabel: 'Contact',
   },
   projects: {
     label: 'Selected Projects',

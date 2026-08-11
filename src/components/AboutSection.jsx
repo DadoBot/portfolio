@@ -56,13 +56,13 @@ export default function AboutSection({ t }) {
                 <img src={aboutPhoto} alt="Davide Andolfi" className="pw-img" />
               </div>
 
-              <div className="pw-text-wrap block-mission-text" style={{ marginTop: '100px' }}>
-                <h3 className="pw-h3">{t.about.mission_title}</h3>
-                <p className="pw-p">{t.about.mission_text}</p>
+              <div className="pw-text-wrap block-volunt-text" style={{ marginTop: '100px' }}>
+                <h2 className="pw-h3">{t.about.volunteering_title}</h2>
+                <p className="pw-p">{t.about.volunteering_text}</p>
               </div>
-              
-              <div className="pw-img-wrap block-volunt-photo" style={{ marginTop: '80px' }}>
-                <img src={volunteeringPhoto} alt="Volunteering" className="pw-img" />
+
+              <div className="pw-img-wrap block-mission-photo" style={{ marginTop: '80px' }}>
+                <img src={missionPhoto} alt="Mission" className="pw-img" />
               </div>
             </div>
 
@@ -72,13 +72,13 @@ export default function AboutSection({ t }) {
                 <p className="pw-p pw-p--large">{t.about.bio}</p>
               </div>
 
-              <div className="pw-img-wrap block-mission-photo" style={{ marginTop: '80px' }}>
-                <img src={missionPhoto} alt="Mission" className="pw-img" />
+              <div className="pw-img-wrap block-volunt-photo" style={{ marginTop: '80px' }}>
+                <img src={volunteeringPhoto} alt="Volunteering" className="pw-img" />
               </div>
 
-              <div className="pw-text-wrap block-volunt-text" style={{ marginTop: '160px' }}>
-                <h3 className="pw-h3">{t.about.volunteering_title}</h3>
-                <p className="pw-p">{t.about.volunteering_text}</p>
+              <div className="pw-text-wrap block-mission-text" style={{ marginTop: '160px' }}>
+                <h2 className="pw-h3">{t.about.mission_title}</h2>
+                <p className="pw-p">{t.about.mission_text}</p>
               </div>
             </div>
           </div>

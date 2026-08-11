@@ -46,13 +46,13 @@ export default function Navbar({ activeView, onViewChange, t }) {
           <ArrowUpRight />
         </a>
         <a
-          id="link-github"
+          id="link-instagram"
           className="navbar__link"
-          href="https://github.com/DadoBot"
+          href="https://www.instagram.com/giandolf_34/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          {t.nav.github}
+          {t.nav.instagram}
           <ArrowUpRight />
         </a>
       </div>

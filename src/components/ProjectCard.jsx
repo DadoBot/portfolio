@@ -30,22 +30,28 @@ export default function ProjectCard({ project, lang, t, index }) {
     return () => observer.disconnect();
   }, []);
 
+  const toggleOpen = () => setOpen(o => !o);
+  const handleKeyDown = e => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      toggleOpen();
+    }
+  };
+
   return (
     <article
       id={`project-${project.id}`}
       ref={cardRef}
       className="project-card fade-in"
       style={{ transitionDelay: `${index * 0.1}s` }}
+      onClick={toggleOpen}
+      role="button"
+      tabIndex={0}
+      aria-expanded={open}
+      onKeyDown={handleKeyDown}
     >
       {/* Header — always visible */}
-      <div
-        className="project-card__header"
-        onClick={() => setOpen(o => !o)}
-        role="button"
-        tabIndex={0}
-        aria-expanded={open}
-        onKeyDown={e => e.key === 'Enter' && setOpen(o => !o)}
-      >
+      <div className="project-card__header">
         <div>
           <p className="project-card__meta">{data.meta}</p>
           <h2 className="project-card__title">{data.title}</h2>
@@ -81,17 +87,17 @@ export default function ProjectCard({ project, lang, t, index }) {
         <div className="project-card__details">
           <div className="project-detail-grid">
             <div className="project-detail-block">
-              <h4>{t.projects.role}</h4>
+              <h3>{t.projects.role}</h3>
               <p>{data.role}</p>
             </div>
             <div className="project-detail-block">
-              <h4>{t.projects.approach}</h4>
+              <h3>{t.projects.approach}</h3>
               <p>{data.approach}</p>
             </div>
           </div>
 
           <div className="project-detail-block">
-            <h4>{t.projects.learnings}</h4>
+            <h3>{t.projects.learnings}</h3>
             <ul className="project-learnings">
               {data.learnings.map((item, i) => (
                 <li key={i}>{item}</li>

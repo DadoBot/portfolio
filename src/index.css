@@ -20,7 +20,7 @@
   --border-hover: rgba(255, 255, 255, 0.18);
   --text-primary: #FFFFFF;
   --text-secondary: #888888;
-  --text-tertiary: #555555;
+  --text-tertiary: #808080;
   --accent-glow: rgba(110, 140, 255, 0.12);
   --accent-glow-hover: rgba(110, 140, 255, 0.22);
   --accent-blue: #6E8CFF;
@@ -53,6 +53,10 @@ body {
 }
 
 /* ---------- Page Init Animation ---------- */
+/* Opacity-only: a transform here (even one that resolves to identity) makes
+   #root a containing block for its position:fixed descendants (navbar,
+   language toggle, contact button), pinning them to the document instead
+   of the viewport. */
 #root {
   animation: pageEnter 0.5s ease forwards;
 }
@@ -60,12 +64,10 @@ body {
 @keyframes pageEnter {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
 
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
@@ -83,6 +85,22 @@ h5 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------- Focus ---------- */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 /* ---------- Scrollbar ---------- */
@@ -117,15 +135,22 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   background-color: var(--bg);
 }
 
 .navbar__brand {
   display: flex;
   flex-direction: column;
+  /* Allow this block to shrink/ellipsis below its content width instead of
+     squeezing the nav-toggle pill (flex items default to a content-based
+     min-width, which forces siblings to shrink together otherwise). */
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .navbar__name {
+  display: block;
   font-size: 22px;
   font-family: 'Gloock', serif;
   font-style: italic;
@@ -136,6 +161,15 @@ a {
   background-clip: text;
   text-shadow: 0 5px 15px #0057ff1a, 0 -5px 15px #ff5a0014, 0 0 30px #fff3;
   padding-right: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navbar__role {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .navbar__role {
@@ -151,6 +185,9 @@ a {
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   padding: 4px;
+  /* Never let this shrink below its label width — losing the brand name to
+     an ellipsis is fine, a squeezed/clipped "Work · Info" pill is not. */
+  flex-shrink: 0;
 }
 
 .nav-toggle__slider {
@@ -385,12 +422,21 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top: 20px;
+  margin: 20px auto 0;
   color: var(--text-tertiary);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  transition: var(--transition-fast);
+}
+
+.scroll-indicator:hover {
+  color: var(--text-primary);
 }
 
 .scroll-indicator__arrow {
@@ -550,7 +596,7 @@ a {
   margin-bottom: 32px;
 }
 
-.project-detail-block h4 {
+.project-detail-block h3 {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -611,6 +657,85 @@ a {
 .tech-tag:hover {
   border-color: var(--border-hover);
   color: var(--text-secondary);
+}
+
+/* ---------- Work Closing CTA ---------- */
+.work-cta {
+  margin-top: 80px;
+  padding: 56px 48px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.work-cta:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 60px var(--accent-glow);
+}
+
+.work-cta .pw-eyebrow {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.work-cta__title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.work-cta__text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 440px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.work-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-blue);
+  color: #050505;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+}
+
+.work-cta__button:hover {
+  box-shadow: 0 0 30px var(--accent-glow-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- Pinned Contact Button ---------- */
+.contact-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-blue);
+  color: #050505;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-fast);
+}
+
+.contact-fab:hover {
+  box-shadow: 0 0 30px var(--accent-glow-hover), 0 4px 24px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
 }
 
 /* ---------- About Section (Perry Wang Layout) ---------- */
@@ -785,19 +910,19 @@ a {
     order: 2;
   }
 
-  .block-mission-photo {
+  .block-volunt-photo {
     order: 3;
   }
 
-  .block-mission-text {
+  .block-volunt-text {
     order: 4;
   }
 
-  .block-volunt-photo {
+  .block-mission-photo {
     order: 5;
   }
 
-  .block-volunt-text {
+  .block-mission-text {
     order: 6;
   }
 
@@ -914,6 +1039,18 @@ a {
   .lang-toggle {
     bottom: 16px;
     left: 16px;
+  }
+
+  .contact-fab {
+    bottom: 16px;
+    right: 16px;
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .work-cta {
+    margin-top: 56px;
+    padding: 40px 24px;
   }
 }
 
